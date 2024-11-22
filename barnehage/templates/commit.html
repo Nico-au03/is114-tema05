@@ -2,4 +2,89 @@
 
 {% block content %}
 <p>Alle endringene er skrevet til dbexcel!</p>
+
+<!-- Table for Barnehager -->
+<h2>Barnehager</h2>
+<table border="1">
+    <thead>
+        <tr>
+            {% for key in barnehager.keys() %}
+            <th>{{ key }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for index in range(barnehager[barnehager|first]|length) %}
+        <tr>
+            {% for key in barnehager.keys() %}
+            <td>{{ barnehager[key][index] }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Table for Soknad -->
+<h2>Søknader</h2>
+<table border="1">
+    <thead>
+        <tr>
+            {% for key in soknad.keys() %}
+            <th>{{ key }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for index in range(soknad[soknad|first]|length) %}
+        <tr>
+            {% for key in soknad.keys() %}
+            <td>{{ soknad[key][index] }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Table for Barn -->
+<h2>Barn</h2>
+<table border="1">
+    <thead>
+        <tr>
+            {% for key in barn.keys() %}
+            <th>{{ key }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for index in range(barn[barn|first]|length) %}
+        <tr>
+            {% for key in barn.keys() %}
+            <td>{{ barn[key][index] }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Table for Foresatt -->
+<h2>Foresatt</h2>
+<table border="1">
+    <thead>
+        <tr>
+            {% for key in foresatt.keys() %}
+            <th>{{ key }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for index in range(foresatt[foresatt|first]|length) %}
+        <tr>
+            {% for key in foresatt.keys() %}
+            <td>{{ foresatt[key][index] }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
 {% endblock %}

@@ -79,4 +79,5 @@ Referanser
 [1] https://docs.python.org/3/library/dataclasses.html
 [2] https://www.geeksforgeeks.org/python-repr-function/
 
+
 """

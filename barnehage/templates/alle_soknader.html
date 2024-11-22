@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table>
+    <thead>
+        <tr>
+            <th>Sok ID</th>
+            <th>Foresatt 1</th>
+            <th>Foresatt 2</th>
+            <th>Barn 1</th>
+            <th>Fr Barnevern</th>
+            <th>Fr Sykd Familie</th>
+            <th>Fr Sykd Barn</th>
+            <th>Fr Annet</th>
+            <th>Barnehager Prioritert</th>
+            <th>Søsken i Barnehagen</th>
+            <th>Tidspunkt Oppstart</th>
+            <th>Brutto Inntekt</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for soknad in data %}
+        <tr>
+            <td>{{ soknad.sok_id }}</td>
+            <td>{{ soknad.foresatt_1 }}</td>
+            <td>{{ soknad.foresatt_2 }}</td>
+            <td>{{ soknad.barn_1 }}</td>
+            <td>{{ soknad.fr_barnevern }}</td>
+            <td>{{ soknad.fr_sykd_familie }}</td>
+            <td>{{ soknad.fr_sykd_barn }}</td>
+            <td>{{ soknad.fr_annet }}</td>
+            <td>{{ soknad.barnehager_prioritert }}</td>
+            <td>{{ soknad.sosken__i_barnehagen }}</td>
+            <td>{{ soknad.tidspunkt_oppstart }}</td>
+            <td>{{ soknad.brutto_inntekt }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

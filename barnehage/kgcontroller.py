@@ -231,5 +231,4 @@ def test_df_to_object_list():
                              r['barnehage_navn'],
                              r['barnehage_antall_plasser'],
                              r['barnehage_ledige_plasser']),
-        axis=1).to_list()[0].barnehage_navn == "Sunshine Preschool"
-    
+         axis=1).to_list()[0].barnehage_navn == "Sunshine Preschool"
