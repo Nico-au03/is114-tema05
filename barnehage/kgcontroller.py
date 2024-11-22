@@ -116,6 +116,35 @@ def select_barn(b_pnr):
     
 # --- Skriv kode for select_soknad her
 
+def select_alle_soknad():
+    """Returnerer en liste med alle barnehager definert i databasen dbexcel."""
+    return soknad.apply(lambda r: Soknad(r['sok_id'],
+                             r['foresatt_1'],
+                             r['foresatt_2'],
+                             r['barn_1'],
+                             r['fr_barnevern'],
+                             r['fr_sykd_familie'],
+                             r['fr_sykd_barn'],
+                             r['fr_annet'],
+                             r['barnehager_prioritert'],
+                             r['sosken__i_barnehagen'],
+                             r['tidspunkt_oppstart'],
+                             r['brutto_inntekt']), 
+         axis=1).to_list()
+
+def select_alle_barn():
+    return barn.apply(lambda r: Barn(r['barn_id'],
+                             r['barn_pnr']),
+         axis=1).to_list()
+
+def select_alle_foresatt():
+    return forelder.apply(lambda r: Foresatt(r['foresatt_id'],
+                             r['foresatt_navn'],
+                             r['foresatt_adresse'],
+                             r['foresatt_tlfnr'],
+                             r['foresatt_pnr']),
+         axis=1).to_list()
+
 
 # ------------------
 # Update
@@ -175,7 +204,7 @@ ImmutableMultiDict([('navn_forelder_1', 'asdf'),
     foresatt_2.foresatt_id = select_foresatt(sd.get('navn_forelder_2'))
     
     # Lagring i hurtigminne av informasjon om barn (OBS! kun ett barn blir lagret)
-    barn_1 = Barn(0, sd.get('personnummer_barnet_1'))
+    barn_1 = Barn(0, sd.get('personneummer_barnet_1'))
     insert_barn(barn_1)
     barn_1.barn_id = select_barn(sd.get('personnummer_barnet_1'))
     
@@ -202,4 +231,5 @@ def test_df_to_object_list():
                              r['barnehage_navn'],
                              r['barnehage_antall_plasser'],
                              r['barnehage_ledige_plasser']),
-         axis=1).to_list()[0].barnehage_navn == "Sunshine Preschool"
+        axis=1).to_list()[0].barnehage_navn == "Sunshine Preschool"
+    
