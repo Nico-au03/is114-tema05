@@ -68,7 +68,7 @@ def alle_soknader():
     return render_template('alle_soknader.html', data=soknader) 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
 
 
 
